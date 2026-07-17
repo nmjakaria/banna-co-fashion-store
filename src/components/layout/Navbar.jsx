@@ -15,10 +15,6 @@ export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Bulletproof safety check to prevent the React NaN error
-  // const safeTotalItems = Number(totalItems) || 0;
-
-  // Listen for custom events to open the drawer (e.g., from the Add to Cart button)
   useEffect(() => {
     const handleOpenDrawer = () => setIsDrawerOpen(true);
     window.addEventListener("open-cart-drawer", handleOpenDrawer);
