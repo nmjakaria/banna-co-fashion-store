@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -13,12 +14,20 @@ export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  
+  // Bulletproof safety check to prevent the React NaN error
+  const safeTotalItems = Number(totalItems) || 0;
+
+  // Listen for custom events to open the drawer (e.g., from the Add to Cart button)
   useEffect(() => {
     const handleOpenDrawer = () => setIsDrawerOpen(true);
     window.addEventListener("open-cart-drawer", handleOpenDrawer);
     return () => window.removeEventListener("open-cart-drawer", handleOpenDrawer);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -32,7 +41,7 @@ export default function Navbar() {
           
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden p-2 -ml-2 text-[#0E0E10]"
+            className="md:hidden p-2 -ml-2 text-[#0E0E10] hover:text-[#C97A4A] transition-subtle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -67,9 +76,11 @@ export default function Navbar() {
               aria-label="Open cart"
             >
               <ShoppingBag size={24} strokeWidth={1.5} />
-              {isMounted && totalItems > 0 && (
-                <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#C97A4A] text-[10px] font-bold text-white">
-                  {totalItems}
+              
+              {/* Safely render the badge only if we have mounted and have a valid count */}
+              {isMounted && safeTotalItems > 0 && (
+                <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#C97A4A] text-[10px] font-bold text-white shadow-sm">
+                  {safeTotalItems}
                 </span>
               )}
             </button>
@@ -77,24 +88,25 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-hairline bg-[#FAFAF8] px-4 py-4">
-            <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-lg font-medium ${
-                    pathname === link.href ? "text-[#C97A4A]" : "text-[#0E0E10]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
+        <div 
+          className={`md:hidden absolute top-16 left-0 w-full bg-[#FAFAF8] border-b border-hairline transition-all duration-300 ease-in-out origin-top ${
+            isMobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
+          }`}
+        >
+          <nav className="flex flex-col px-6 py-6 space-y-6 shadow-lg">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-xl font-serif tracking-wide ${
+                  pathname === link.href ? "text-[#C97A4A] font-bold" : "text-[#0E0E10]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </header>
 
       {/* Mini Cart Drawer */}

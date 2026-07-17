@@ -17,13 +17,8 @@ import { formatPrice } from "@/lib/formatPrice";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
-  console.log("Product ID from URL:", id); // Debugging line
   const { addItem, openCart } = useCart();
-  
-  // const product = products.find((p) => p.id === id);
-  // Change this line:
-const product = products.find((p) => String(p.id) === String(id));
-  console.log("Found product:", product); // Debugging line
+  const product = products.find((p) => String(p.id) === String(id));
 
   // Initial states
   const [selectedColor, setSelectedColor] = useState(null);
@@ -42,7 +37,7 @@ const product = products.find((p) => String(p.id) === String(id));
 
   const handleAddToCart = () => {
     if (!product.inStock) return;
-    
+
     addItem({ ...product, selectedColor, selectedSize, quantity });
     toast.success(`${product.name} added to cart.`);
     openCart();
@@ -62,7 +57,7 @@ const product = products.find((p) => String(p.id) === String(id));
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#0E0E10] mb-4">
               {product.name}
             </h1>
-            
+
             <div className="flex items-center gap-4 mb-6">
               <span className="text-xl font-bold text-[#0E0E10]">{formatPrice(product.price)}</span>
               <RatingStars rating={product.rating} />
@@ -71,30 +66,29 @@ const product = products.find((p) => String(p.id) === String(id));
             <p className="text-[#8A8578] leading-relaxed mb-8">{product.description}</p>
 
             <div className="space-y-8 mb-10">
-              <ColorSwatchPicker 
-                colors={product.colors} 
-                selected={selectedColor} 
-                onSelect={setSelectedColor} 
+              <ColorSwatchPicker
+                colors={product.colors}
+                selected={selectedColor}
+                onSelect={setSelectedColor}
               />
-              <SizeSelector 
-                sizes={product.sizes} 
-                selected={selectedSize} 
-                onSelect={setSelectedSize} 
+              <SizeSelector
+                sizes={product.sizes}
+                selected={selectedSize}
+                onSelect={setSelectedSize}
               />
-              <QuantityStepper 
-                quantity={quantity} 
-                setQuantity={setQuantity} 
+              <QuantityStepper
+                quantity={quantity}
+                setQuantity={setQuantity}
               />
             </div>
 
             <button
               onClick={handleAddToCart}
               disabled={isButtonDisabled}
-              className={`w-full py-4 font-medium transition-subtle rounded-md ${
-                isButtonDisabled 
-                  ? "bg-[#EBEBE8] text-[#8A8578] cursor-not-allowed" 
+              className={`w-full py-4 font-medium transition-subtle rounded-md ${isButtonDisabled
+                  ? "bg-[#EBEBE8] text-[#8A8578] cursor-not-allowed"
                   : "bg-[#0E0E10] text-white hover:bg-[#C97A4A]"
-              }`}
+                }`}
             >
               {!product.inStock ? "Out of Stock" : "Add to Cart"}
             </button>

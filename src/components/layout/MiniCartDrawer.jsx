@@ -10,7 +10,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function MiniCartDrawer({ isOpen, onClose }) {
-  const { items, removeItem, updateQty, subtotal, isMounted } = useCart();
+  // 1. Added a default empty array to items to prevent undefined crashes
+  const { items = [], removeItem, updateQty, subtotal, isMounted } = useCart();
 
   // Prevent background scrolling when drawer is open
   useEffect(() => {
@@ -43,6 +44,11 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
   };
 
   if (!isMounted) return null;
+
+  // 2. Safely calculate our own fallback subtotal just in case the context's subtotal is NaN
+  const safeSubtotal = Number(subtotal) || items.reduce((acc, item) => {
+    return acc + ((Number(item.price) || 0) * (Number(item.qty) || 1));
+  }, 0);
 
   return (
     <AnimatePresence>
@@ -119,7 +125,8 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                               {item.name}
                             </h3>
                             <p className="text-sm font-bold text-[#0E0E10] ml-4">
-                              {formatPrice(item.price * item.qty)}
+                              {/* 3. Safely calculate item total to avoid NaN */}
+                              {formatPrice((Number(item.price) || 0) * (Number(item.qty) || 1))}
                             </p>
                           </div>
                           <p className="mt-1 text-xs text-[#8A8578]">
@@ -131,15 +138,15 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                           {/* Quantity Controls */}
                           <div className="flex items-center border border-hairline rounded-sm">
                             <button
-                              onClick={() => updateQty(item.id, item.color, item.size, Math.max(1, item.qty - 1))}
+                              onClick={() => updateQty(item.id, item.color, item.size, Math.max(1, (Number(item.qty) || 1) - 1))}
                               className="px-2 py-1 text-[#8A8578] hover:text-[#0E0E10] transition-subtle"
-                              disabled={item.qty <= 1}
+                              disabled={(Number(item.qty) || 1) <= 1}
                             >
                               <Minus size={14} />
                             </button>
-                            <span className="text-xs font-medium w-6 text-center">{item.qty}</span>
+                            <span className="text-xs font-medium w-6 text-center">{Number(item.qty) || 1}</span>
                             <button
-                              onClick={() => updateQty(item.id, item.color, item.size, item.qty + 1)}
+                              onClick={() => updateQty(item.id, item.color, item.size, (Number(item.qty) || 1) + 1)}
                               className="px-2 py-1 text-[#8A8578] hover:text-[#0E0E10] transition-subtle"
                             >
                               <Plus size={14} />
@@ -166,7 +173,8 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
               <div className="border-t border-hairline bg-[#FAFAF8] px-6 py-6">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[#8A8578]">Subtotal</span>
-                  <span className="font-bold text-lg text-[#0E0E10]">{formatPrice(subtotal)}</span>
+                  {/* 4. Use the safeSubtotal to prevent the specific NaN error you got on line 140 */}
+                  <span className="font-bold text-lg text-[#0E0E10]">{formatPrice(safeSubtotal)}</span>
                 </div>
                 <p className="text-xs text-[#8A8578] mb-6">
                   Shipping and taxes calculated at checkout.
@@ -176,11 +184,11 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                   <Link
                     href="/cart"
                     onClick={onClose}
-                    className="btn btn-outline border-[#0E0E10] text-[#0E0E10] hover:bg-[#0E0E10] hover:text-white w-full rounded-none"
+                    className="btn btn-outline border-[#0E0E10] text-[#0E0E10] hover:bg-[#0E0E10] hover:text-white w-full rounded-none flex justify-center py-3"
                   >
                     View Cart
                   </Link>
-                  <button className="btn bg-[#C97A4A] hover:bg-[#b0673b] border-none text-white w-full rounded-none flex items-center justify-center gap-2">
+                  <button className="btn bg-[#C97A4A] hover:bg-[#b0673b] border-none text-white w-full rounded-none flex items-center justify-center gap-2 py-3">
                     Checkout <ArrowRight size={16} />
                   </button>
                 </div>

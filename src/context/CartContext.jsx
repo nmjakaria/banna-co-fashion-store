@@ -70,6 +70,7 @@ function cartReducer(state, action) {
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const [isMounted, setIsMounted] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // SSR-safe Hydration from localStorage[cite: 1]
   useEffect(() => {
@@ -113,15 +114,21 @@ export function CartProvider({ children }) {
     0
   );
 
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
   const value = {
     items: state.items,
     addItem,
+    openCart,
+    closeCart,
     removeItem,
     updateQty,
     clearCart,
     subtotal,
     totalItems,
     isMounted,
+    isCartOpen,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
