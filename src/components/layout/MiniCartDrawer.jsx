@@ -33,13 +33,13 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
 
   const drawerVariants = {
     hidden: { x: "100%" },
-    visible: { 
-      x: 0, 
-      transition: { type: "spring", stiffness: 300, damping: 30 } 
+    visible: {
+      x: 0,
+      transition: { type: "spring", stiffness: 300, damping: 30 }
     },
-    exit: { 
-      x: "100%", 
-      transition: { type: "spring", stiffness: 300, damping: 30 } 
+    exit: {
+      x: "100%",
+      transition: { type: "spring", stiffness: 300, damping: 30 }
     },
   };
 
@@ -179,7 +179,7 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                 <p className="text-xs text-[#8A8578] mb-6">
                   Shipping and taxes calculated at checkout.
                 </p>
-                
+
                 <div className="flex flex-col gap-3">
                   <Link
                     href="/cart"
@@ -188,9 +188,14 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                   >
                     View Cart
                   </Link>
-                  <button className="btn bg-[#C97A4A] hover:bg-[#b0673b] border-none text-white w-full rounded-none flex items-center justify-center gap-2 py-3">
-                    Checkout <ArrowRight size={16} />
-                  </button>
+                  <Link
+                    href="/cart"
+                    onClick={onClose}
+                  >
+                    <button className="btn bg-[#C97A4A] hover:bg-[#b0673b] border-none text-white w-full rounded-none flex items-center justify-center gap-2 py-3">
+                      Checkout <ArrowRight size={16} />
+                    </button>
+                  </Link>
                 </div>
               </div>
             )}

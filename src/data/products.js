@@ -16,11 +16,11 @@ export const products = [
     price: 120.00,
     oldPrice: 150.00,
     images: [
-      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1629884518719-743fc55c82db?q=80&w=800&auto=format&fit=crop"
+      "https://deshibesh.com/cdn/shop/files/high-quality-unique-boutique-designer-panjabi-5757778.jpg?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/19329277/pexels-photo-19329277.jpeg?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.8,
-    reviewCount: 124,
+    reviewCount: 1250,
     colors: ["Black", "Charcoal"],
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
@@ -31,11 +31,11 @@ export const products = [
     id: 2,
     name: "Classic Ivory Cotton Panjabi",
     category: "Panjabi",
-    price: 85.00,
-    oldPrice: null,
+    price: 1320,
+    oldPrice: 1500,
     images: [
-      "https://images.unsplash.com/photo-1580526118228-444f2d348a07?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1610444312674-633b375f46b4?q=80&w=800&auto=format&fit=crop"
+      "https://images.pexels.com/photos/18344096/pexels-photo-18344096.jpeg?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/36981453/pexels-photo-36981453.jpeg?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.5,
     reviewCount: 89,
@@ -49,11 +49,11 @@ export const products = [
     id: 3,
     name: "Oxford Button-Down Shirt",
     category: "Shirt",
-    price: 65.00,
-    oldPrice: 80.00,
+    price: 650,
+    oldPrice: 800,
     images: [
-      "https://images.unsplash.com/photo-1596755094514-f87e32f85e23?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1602810316428-56cb8a4a7ab5?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1598032895397-b9472444bf93?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1642764873654-9eef0467b342?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.7,
     reviewCount: 210,
@@ -67,11 +67,11 @@ export const products = [
     id: 4,
     name: "Relaxed Linen Camp Shirt",
     category: "Shirt",
-    price: 75.00,
+    price: 600,
     oldPrice: null,
     images: [
-      "https://images.unsplash.com/photo-1573382767087-2510255869a8?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1588359348347-9bc6cbea68cb?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1713881587420-113c1c43e28a?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1708531378330-b42fa44a882d?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.9,
     reviewCount: 56,
@@ -85,16 +85,16 @@ export const products = [
     id: 5,
     name: "Heavyweight Boxy T-Shirt",
     category: "T-Shirt",
-    price: 35.00,
+    price: 550,
     oldPrice: null,
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800&auto=format&fit=crop"
+      "https://plus.unsplash.com/premium_photo-1673356301535-2cc45bcc79e4?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1716541424935-e28adbd63ca3?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.6,
     reviewCount: 432,
     colors: ["Black", "White", "Grey"],
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     inStock: true,
     isNew: false,
     description: "Constructed from 240gsm combed cotton, this t-shirt offers a structured, drop-shoulder fit that holds its shape all day."
@@ -103,16 +103,16 @@ export const products = [
     id: 6,
     name: "Graphic Typography Tee",
     category: "T-Shirt",
-    price: 40.00,
-    oldPrice: 50.00,
+    price: 490,
+    oldPrice: 650,
     images: [
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1503341455253-b2e723bb3db8?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1627225924765-552d49cf47ad?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.3,
     reviewCount: 78,
-    colors: ["Off-White"],
-    sizes: ["S", "M"],
+    colors: ["Off-White", "Black", "Blue"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     inStock: true,
     isNew: true,
     description: "Limited edition graphic tee featuring custom BANNA Co. typography. Soft hand-feel print on our signature everyday cotton blank."
@@ -121,15 +121,16 @@ export const products = [
     id: 7,
     name: "Merino Wool Knit Polo",
     category: "Polo",
-    price: 95.00,
+    price: 950,
     oldPrice: null,
     images: [
-      "https://images.unsplash.com/photo-1586363104862-3a5e222ee5b3?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1586363104862-3a5e222ee5b3?q=80&w=800&auto=format&fit=crop" // duplicated intentionally to simulate alternative angle
+      "https://images.unsplash.com/photo-1711355249709-1733df63e028?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1689214105217-48a71e03281b?q=80&w=800&auto=format&fit=crop",// duplicated intentionally to simulate alternative angle
+      "https://images.unsplash.com/photo-1759229874709-a8d0de083b91?q=80&w=800&auto=format&fit=crop" // duplicated intentionally to simulate alternative angle
     ],
     rating: 4.9,
     reviewCount: 34,
-    colors: ["Navy", "Forest Green"],
+    colors: ["Navy", "Gray", "White", "Brown"],
     sizes: ["M", "L", "XL"],
     inStock: true,
     isNew: true,
@@ -139,11 +140,11 @@ export const products = [
     id: 8,
     name: "Pique Cotton Sport Polo",
     category: "Polo",
-    price: 45.00,
-    oldPrice: 60.00,
+    price: 1050,
+    oldPrice: 1260,
     images: [
-      "https://images.unsplash.com/photo-1574676185802-bd93e2b51206?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop"
+      "https://images.pexels.com/photos/7648278/pexels-photo-7648278.jpeg?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/7648388/pexels-photo-7648388.jpeg?q=80&w=800&auto=format&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 156,
@@ -157,11 +158,11 @@ export const products = [
     id: 9,
     name: "Embroidered Festival Kurta",
     category: "Kurta",
-    price: 110.00,
-    oldPrice: 140.00,
+    price: 1100,
+    oldPrice: 1400,
     images: [
-      "https://images.unsplash.com/photo-1664188741306-03c706d8a39b?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1583391733958-d25e07fac04f?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1710242350089-65eef7e49364?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1627999344883-83852549b823?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.8,
     reviewCount: 62,
@@ -175,11 +176,11 @@ export const products = [
     id: 10,
     name: "Minimalist Daily Kurta",
     category: "Kurta",
-    price: 70.00,
+    price: 1270,
     oldPrice: null,
     images: [
-      "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1770359993283-a2c2f386584e?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1772736243289-872f9ac73cf8?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.5,
     reviewCount: 112,
@@ -193,15 +194,15 @@ export const products = [
     id: 11,
     name: "Café Racer Leather Jacket",
     category: "Jacket",
-    price: 280.00,
-    oldPrice: 350.00,
+    price: 2800,
+    oldPrice: 2350,
     images: [
-      "https://images.unsplash.com/photo-1551028719-012574f40187?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520975954732-57dd22299614?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1727515546577-f7d82a47b51d?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?q=80&w=800&auto=format&fit=crop"
     ],
     rating: 4.9,
     reviewCount: 88,
-    colors: ["Black", "Vintage Brown"],
+    colors: ["Black", "Brown"],
     sizes: ["M", "L", "XL"],
     inStock: true,
     isNew: true,
@@ -211,7 +212,7 @@ export const products = [
     id: 12,
     name: "Fleece-Lined Denim Trucker",
     category: "Jacket",
-    price: 130.00,
+    price: 1300,
     oldPrice: null,
     images: [
       "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop",
@@ -219,7 +220,7 @@ export const products = [
     ],
     rating: 4.7,
     reviewCount: 195,
-    colors: ["Washed Indigo"],
+    colors: ["Indigo", "Washed"],
     sizes: ["S", "M", "L", "XL"],
     inStock: false,
     isNew: false,
