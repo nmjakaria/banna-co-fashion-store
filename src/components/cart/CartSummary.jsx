@@ -1,8 +1,21 @@
+import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/formatPrice";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function CartSummary({ subtotal }) {
   const shipping = subtotal > 5000 ? 0 : 100; // Example logic
   const total = subtotal + shipping;
+  const router = useRouter();
+
+  const { clearCart } = useCart();
+
+  const handleCheckout = () => {
+    toast.success("Order placed successfully!");
+    clearCart();
+
+    router.push("/thank-you");
+  };
 
   return (
     <div className="bg-[#EBEBE8] p-8 space-y-4">
@@ -19,7 +32,10 @@ export default function CartSummary({ subtotal }) {
         <span>Total</span>
         <span>{formatPrice(total)}</span>
       </div>
-      <button className="w-full bg-[#0E0E10] text-white py-4 font-medium hover:bg-[#C97A4A] transition-subtle mt-6">
+      <button
+        onClick={handleCheckout}
+        className="w-full bg-[#0E0E10] text-white py-4 font-medium hover:bg-[#C97A4A] transition-subtle mt-6"
+      >
         Proceed to Checkout
       </button>
     </div>

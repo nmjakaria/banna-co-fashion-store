@@ -10,12 +10,12 @@ import MiniCartDrawer from "./MiniCartDrawer";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { totalItems, isMounted } = useCart();
+  const { items = [], isMounted } = useCart();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Bulletproof safety check to prevent the React NaN error
-  const safeTotalItems = Number(totalItems) || 0;
+  // const safeTotalItems = Number(totalItems) || 0;
 
   // Listen for custom events to open the drawer (e.g., from the Add to Cart button)
   useEffect(() => {
@@ -32,6 +32,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
+    {name: "About Us", href: "/about"},
   ];
 
   return (
@@ -60,7 +61,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-subtle hover:text-[#C97A4A] ${
-                  pathname === link.href ? "text-[#C97A4A]" : "text-[#8A8578]"
+                  pathname === link.href ? "text-[#C97A4A] border-b-2 border-b-banna-accent" : "text-[#8A8578]"
                 }`}
               >
                 {link.name}
@@ -69,7 +70,7 @@ export default function Navbar() {
           </nav>
 
           {/* Cart Icon */}
-          <div className="flex items-center">
+          <div className="flex items-center rounded-full bg-secondary-content/60 border-2 border-banna-accent/50">
             <button
               onClick={() => setIsDrawerOpen(true)}
               className="relative p-2 text-[#0E0E10] hover:text-[#C97A4A] transition-subtle"
@@ -78,9 +79,9 @@ export default function Navbar() {
               <ShoppingBag size={24} strokeWidth={1.5} />
               
               {/* Safely render the badge only if we have mounted and have a valid count */}
-              {isMounted && safeTotalItems > 0 && (
+              {isMounted && items.length > 0 && (
                 <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#C97A4A] text-[10px] font-bold text-white shadow-sm">
-                  {safeTotalItems}
+                  {items.length}
                 </span>
               )}
             </button>
