@@ -1,20 +1,43 @@
 @import "tailwindcss";
-@tailwind utilities;
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "banna";
+  default: true;
+  color-scheme: light;
+  --color-primary: #C97A4A;
+  --color-secondary: #8A8578;
+  --color-base-100: #FAFAF8;
+  --color-base-content: #0E0E10;
+}
+
+@theme {
+  --color-banna-black: #0E0E10;
+  --color-banna-white: #FAFAF8;
+  --color-banna-accent: #C97A4A;
+  --color-banna-muted: #8A8578;
+  --color-banna-hairline: #EBEBE8;
+}
 
 @layer base {
   body {
-    /* Enforcing the BANNA Co. color palette and typography defaults */
-    @apply bg-[#FAFAF8] text-[#0E0E10] antialiased selection:bg-[#C97A4A] selection:text-[#FAFAF8];
+    @apply bg-banna-white text-banna-black antialiased selection:bg-banna-accent selection:text-banna-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-banna-accent;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
   }
 }
 
 @layer utilities {
-  /* Hide scrollbar for horizontal scrolling elements like Category Strip */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -22,7 +45,7 @@
 
   /* Custom hairline border to enforce the minimal/editorial look */
   .border-hairline {
-    @apply border border-[#EBEBE8]; 
+    @apply border border-banna-hairline;
   }
 
   /* Soft shadow for card-based grids as per the design language */
@@ -35,8 +58,30 @@
     @apply transition-all duration-300 ease-out;
   }
 
-  /* Skeleton loading animation override for a softer, premium feel */
+  /* Skeleton loading animation — subtle shimmer instead of plain pulse,
+     closer to the "premium" feel the class name promises. */
   .skeleton-premium {
-    @apply animate-pulse bg-[#EBEBE8] rounded-md;
+    @apply rounded-md bg-banna-hairline relative overflow-hidden;
+  }
+  .skeleton-premium::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+}
+
+/* Respect users who've asked the OS to reduce motion — turns off the
+   shimmer and any transition-subtle animation without touching component code. */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-premium::after {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
