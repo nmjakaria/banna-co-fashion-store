@@ -7,7 +7,7 @@ export default function Button({
   ...props 
 }) {
   
-  const baseClasses = "btn rounded-none font-sans font-medium transition-subtle";
+  const baseClasses = "btn rounded-sm font-sans font-medium transition-subtle";
   
   const variants = {
     primary: "bg-[#C97A4A] hover:bg-[#b0673b] text-white border-none",
