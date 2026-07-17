@@ -10,12 +10,12 @@ import { categories } from "@/data/products";
 
 // Mapping category names to specific editorial images for the cards
 const categoryImages = {
-  "Panjabi": "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=600&auto=format&fit=crop",
-  "Shirt": "https://images.unsplash.com/photo-1596755094514-f87e32f85e23?q=80&w=600&auto=format&fit=crop",
+  "Panjabi": "https://images.unsplash.com/photo-1774527929750-f2f32fbb3b93?q=80&w=600&auto=format&fit=crop",
+  "Shirt": "https://images.pexels.com/photos/264726/pexels-photo-264726.jpeg?q=80&w=600&auto=format&fit=crop",
   "T-Shirt": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop",
-  "Polo": "https://images.unsplash.com/photo-1586363104862-3a5e222ee5b3?q=80&w=600&auto=format&fit=crop",
-  "Kurta": "https://images.unsplash.com/photo-1664188741306-03c706d8a39b?q=80&w=600&auto=format&fit=crop",
-  "Jacket": "https://images.unsplash.com/photo-1551028719-012574f40187?q=80&w=600&auto=format&fit=crop",
+  "Polo": "https://images.unsplash.com/photo-1671438118097-479e63198629?q=80&w=600&auto=format&fit=crop",
+  "Kurta": "https://images.pexels.com/photos/8692288/pexels-photo-8692288.jpeg?q=80&w=600&auto=format&fit=crop",
+  "Jacket": "https://images.unsplash.com/photo-1727515546577-f7d82a47b51d?q=80&w=600&auto=format&fit=crop",
 };
 
 export default function CategoryStrip() {
@@ -34,7 +34,7 @@ export default function CategoryStrip() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-[#FAFAF8]">
+    <section className="py-20 md:py-28 bg-[#FAFAF8] drop-shadow-md">
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
           <SectionHeading 
@@ -81,7 +81,7 @@ export default function CategoryStrip() {
               <Link 
                 key={category} 
                 href={`/products?category=${category}`}
-                className="group relative shrink-0 w-70 md:w-[320px] aspect-4/5 snap-start overflow-hidden border border-hairline bg-[#EBEBE8] shadow-soft"
+                className="group relative shrink-0 w-70 md:w-[320px] aspect-4/5 snap-start overflow-hidden border border-hairline bg-[#EBEBE8] shadow-soft rounded-xl"
               >
                 <Image
                   src={categoryImages[category] || "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=600&auto=format&fit=crop"}

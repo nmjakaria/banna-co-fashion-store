@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import MiniCartDrawer from "./MiniCartDrawer";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -50,9 +51,22 @@ export default function Navbar() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="font-serif text-2xl font-bold text-[#0E0E10] tracking-tight">
-            BANNA Co.
-          </Link>
+          <Link href="/" className="flex items-center gap-3 group">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-500/10 dark:bg-teal-400/10 border border-teal-500/20 group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  alt="Banna co Logo"
+                  src="/logo.png"
+                  width={35}
+                  height={35}
+                  className="object-contain"
+                />
+              </div>
+              <div className="hidden leading-none sm:block">
+                <span className="text-2xl font-black tracking-tight text-banna-black">
+                  BANNA<span className="bg-gradient-to-r from-teal-600 to-orange-500 bg-clip-text text-transparent">.Co</span>
+                </span>
+              </div>
+            </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

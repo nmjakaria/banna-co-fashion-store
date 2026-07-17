@@ -37,7 +37,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id} 
-              className="p-8 border border-hairline bg-white shadow-soft flex flex-col justify-between"
+              className="p-8 border border-hairline bg-white shadow-md flex flex-col justify-between rounded-xl"
             >
               <div>
                 {/* Minimalist quote mark */}

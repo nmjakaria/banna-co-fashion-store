@@ -6,11 +6,11 @@ export default function PromoBanner() {
   return (
     <section className="py-12 md:py-20 bg-[#FAFAF8]">
       <Container>
-        <div className="flex flex-col lg:flex-row border border-hairline bg-[#0E0E10] text-[#FAFAF8] overflow-hidden shadow-soft">
+        <div className="flex flex-col lg:flex-row border border-hairline bg-[#0E0E10] text-[#FAFAF8] overflow-hidden shadow-soft rounded-2xl">
           {/* Image Half */}
           <div className="relative w-full lg:w-1/2 h-100 lg:h-125">
             <Image
-              src="https://images.unsplash.com/photo-1499939667766-4afceb292d05?q=80&w=2073&auto=format&fit=crop"
+              src="https://images.pexels.com/photos/8588636/pexels-photo-8588636.jpeg?q=80&w=2073&auto=format&fit=crop"
               alt="Mid-Season Sale"
               fill
               className="object-cover opacity-90"
