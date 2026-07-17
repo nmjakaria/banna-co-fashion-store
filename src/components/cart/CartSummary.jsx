@@ -1,7 +1,7 @@
 import { formatPrice } from "@/lib/formatPrice";
 
 export default function CartSummary({ subtotal }) {
-  const shipping = subtotal > 5000 ? 0 : 500; // Example logic
+  const shipping = subtotal > 5000 ? 0 : 100; // Example logic
   const total = subtotal + shipping;
 
   return (

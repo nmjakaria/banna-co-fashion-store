@@ -20,7 +20,7 @@ export default function FilterSidebar({ isMobile = false, onClose }) {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 shadow-lg p-6 bg-white">
       {/* Categories */}
       <div className="space-y-4">
         <h4 className="text-xs font-bold uppercase tracking-widest text-[#8A8578]">Category</h4>

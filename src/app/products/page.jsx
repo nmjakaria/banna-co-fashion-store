@@ -107,9 +107,9 @@ function ProductsContent() {
   }, [searchParams]);
 
   return (
-    <div className="bg-banna-white min-h-screen pb-24">
+    <div className="bg-banna-white min-h-screen pb-16">
       {/* Page Header */}
-      <div className="bg-banna-white text-banna-black py-16 md:py-24">
+      <div className="bg-banna-white text-banna-black py-8 md:py-8">
         <Container>
           <SectionHeading
             title="The Collection"
@@ -119,7 +119,7 @@ function ProductsContent() {
         </Container>
       </div>
 
-      <Container className="mt-12">
+      <Container className="mt-12 shadow-xl bg-banna-white p-6">
         <div className="flex flex-col lg:flex-row gap-10">
           
           {/* Desktop Sidebar (Hidden on <1024px) */}
@@ -130,7 +130,7 @@ function ProductsContent() {
           {/* Main Content Area */}
           <div className="flex-1">
             {/* Toolbar: Search, Mobile Filter Toggle, Sort */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b border-hairline">
+            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-4 p-6 mb-8 border-b border-hairline bg-base-content/50">
               
               {/* Search Bar */}
               <form onSubmit={handleSearch} className="relative w-full sm:w-72">
@@ -169,7 +169,7 @@ function ProductsContent() {
             </div>
 
             {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8">
                 {[...Array(6)].map((_, i) => (
                   <ProductSkeleton key={i} />
                 ))}

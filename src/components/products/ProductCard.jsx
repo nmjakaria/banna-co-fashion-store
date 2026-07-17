@@ -11,10 +11,10 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/products/${id}`} className="group block h-full">
       {/* Container with shadow-soft */}
-      <div className="flex flex-col h-full bg-white shadow-soft hover:shadow-lg transition-subtle border border-hairline overflow-hidden">
+      <div className="flex flex-col h-full rounded-lg bg-white shadow-soft hover:shadow-lg transition-subtle border border-hairline overflow-hidden">
         
         {/* Image Section */}
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#EBEBE8]">
+        <div className="relative aspect-4/3 w-full overflow-hidden bg-[#EBEBE8]">
           {/* Badges */}
           <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
             {!inStock && <Badge variant="neutral">Out of Stock</Badge>}
