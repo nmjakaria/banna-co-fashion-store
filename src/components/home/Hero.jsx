@@ -27,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full bg-[#0E0E10] overflow-hidden">
+    <section className="relative h-[85vh] min-h-150 w-full bg-[#0E0E10] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -39,7 +39,7 @@ export default function Hero() {
           sizes="100vw"
         />
         {/* Subtle gradient overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10]/80 via-transparent to-[#0E0E10]/30" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0E0E10]/80 via-transparent to-[#0E0E10]/30" />
       </div>
 
       {/* Content Container */}

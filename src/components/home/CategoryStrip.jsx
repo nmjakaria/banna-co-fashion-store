@@ -81,7 +81,7 @@ export default function CategoryStrip() {
               <Link 
                 key={category} 
                 href={`/products?category=${category}`}
-                className="group relative flex-shrink-0 w-[280px] md:w-[320px] aspect-[4/5] snap-start overflow-hidden border border-hairline bg-[#EBEBE8] shadow-soft"
+                className="group relative shrink-0 w-70 md:w-[320px] aspect-4/5 snap-start overflow-hidden border border-hairline bg-[#EBEBE8] shadow-soft"
               >
                 <Image
                   src={categoryImages[category] || "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=600&auto=format&fit=crop"}
@@ -92,7 +92,7 @@ export default function CategoryStrip() {
                 />
                 
                 {/* Modern Editorial Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10]/90 via-[#0E0E10]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0E0E10]/90 via-[#0E0E10]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
                 
                 {/* Card Content Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">

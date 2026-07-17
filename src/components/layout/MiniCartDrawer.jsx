@@ -86,7 +86,7 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                     <Trash2 size={24} className="text-[#8A8578]" />
                   </div>
                   <p className="text-[#0E0E10] font-medium text-lg">Your cart is empty.</p>
-                  <p className="text-[#8A8578] text-sm max-w-[200px]">
+                  <p className="text-[#8A8578] text-sm max-w-50">
                     Looks like you haven't added anything to your cart yet.
                   </p>
                   <button
@@ -101,7 +101,7 @@ export default function MiniCartDrawer({ isOpen, onClose }) {
                   {items.map((item) => (
                     <li key={`${item.id}-${item.color}-${item.size}`} className="flex gap-4">
                       {/* Product Image */}
-                      <div className="relative h-24 w-20 flex-shrink-0 bg-[#EBEBE8] rounded-md overflow-hidden">
+                      <div className="relative h-24 w-20 shrink-0 bg-[#EBEBE8] rounded-md overflow-hidden">
                         <Image
                           src={item.images[0]}
                           alt={item.name}
