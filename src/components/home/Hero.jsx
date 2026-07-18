@@ -39,7 +39,7 @@ export default function Hero() {
           sizes="100vw"
         />
         {/* Subtle gradient overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-linear-to-t from-[#0E0E10]/80 via-transparent to-[#0E0E10]/30" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0E0E10]/80 via-[#0E0E10]/70 to-[#0E0E10]/30" />
       </div>
 
       {/* Content Container */}

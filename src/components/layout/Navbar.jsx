@@ -57,7 +57,7 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              <div className="hidden leading-none sm:block">
+              <div className=" leading-none sm:block">
                 <span className="text-2xl font-black tracking-tight text-banna-black">
                   BANNA<span className="bg-gradient-to-r from-teal-600 to-orange-500 bg-clip-text text-transparent">.Co</span>
                 </span>
